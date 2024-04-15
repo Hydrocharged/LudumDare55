@@ -7645,6 +7645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372613074}
   - component: {fileID: 372613075}
+  - component: {fileID: 372613076}
   m_Layer: 0
   m_Name: CreatureSlot4
   m_TagString: Untagged
@@ -7726,6 +7727,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &372613076
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372613073}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2d90ddfdb9cd8e74b9de0d916864c5fc, type: 2}
+  - {fileID: 7400000, guid: 14e035b7dcefa2d43b1afa59f61d478c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &381183862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10776,6 +10795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711483820}
   - component: {fileID: 711483821}
+  - component: {fileID: 711483822}
   m_Layer: 0
   m_Name: CreatureSlot3
   m_TagString: Untagged
@@ -10857,6 +10877,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &711483822
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711483819}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2d90ddfdb9cd8e74b9de0d916864c5fc, type: 2}
+  - {fileID: 7400000, guid: 9e55842ec9caad5469d01aa7f58a14ce, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &730920180
 GameObject:
   m_ObjectHideFlags: 0
@@ -21357,7 +21395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1648885905
 Transform:
   m_ObjectHideFlags: 0
@@ -21988,7 +22026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1699976007
 Transform:
   m_ObjectHideFlags: 0
@@ -24244,6 +24282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994431028}
   - component: {fileID: 1994431029}
+  - component: {fileID: 1994431030}
   m_Layer: 0
   m_Name: CreatureSlot2
   m_TagString: Untagged
@@ -24325,6 +24364,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &1994431030
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994431027}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2d90ddfdb9cd8e74b9de0d916864c5fc, type: 2}
+  - {fileID: 7400000, guid: 3a0ceaf0d4ee833448e338b8fbc60c9b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &2000417703
 GameObject:
   m_ObjectHideFlags: 0
@@ -25562,6 +25619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121574007}
   - component: {fileID: 2121574008}
+  - component: {fileID: 2121574009}
   m_Layer: 0
   m_Name: CreatureSlot1
   m_TagString: Untagged
@@ -25643,6 +25701,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &2121574009
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121574006}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 9a044e4ba416e1b43acc521e5f427104, type: 2}
+  - {fileID: 7400000, guid: 2d90ddfdb9cd8e74b9de0d916864c5fc, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &2124202287
 GameObject:
   m_ObjectHideFlags: 0

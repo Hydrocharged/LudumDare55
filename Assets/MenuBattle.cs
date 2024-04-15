@@ -26,6 +26,11 @@ public class MenuBattle : IMenuController {
     private TextMeshProUGUI creatureSlot3Damage;
     private TextMeshProUGUI creatureSlot4Damage;
 
+    private Animation creatureSlot1Animation;
+    private Animation creatureSlot2Animation;
+    private Animation creatureSlot3Animation;
+    private Animation creatureSlot4Animation;
+
     public MenuBattle(int battleOptionSelected, BattleStats battleStats) {
         var system = SystemScript.System;
         battleOptionIndex = battleOptionSelected;
@@ -58,6 +63,10 @@ public class MenuBattle : IMenuController {
         creatureSlot2Damage = canvas.transform.Find("CreatureSlot2Damage").GetComponent<TextMeshProUGUI>();
         creatureSlot3Damage = canvas.transform.Find("CreatureSlot3Damage").GetComponent<TextMeshProUGUI>();
         creatureSlot4Damage = canvas.transform.Find("CreatureSlot4Damage").GetComponent<TextMeshProUGUI>();
+        creatureSlot1Animation = menu.transform.Find("CreatureSlot1").GetComponent<Animation>();
+        creatureSlot2Animation = menu.transform.Find("CreatureSlot2").GetComponent<Animation>();
+        creatureSlot3Animation = menu.transform.Find("CreatureSlot3").GetComponent<Animation>();
+        creatureSlot4Animation = menu.transform.Find("CreatureSlot4").GetComponent<Animation>();
 
         canvas.transform.Find("Floor").GetComponent<TextMeshProUGUI>().text = $"Floor {system.Floor} Battle {battleOptionIndex+1}";
         canvas.transform.Find("Gems").GetComponent<TextMeshProUGUI>().text = (system.Gems != 1) ? $"{system.Gems} Gems" : "1 Gem";
@@ -84,12 +93,11 @@ public class MenuBattle : IMenuController {
         }
 
         totalDamage.text = "Total Damage\n0";
-        remainingStats.text = $"Last Attack\n0\nDamage Dealt Last Round\n{stats.DamageDealtLastRound}\nDamage Dealt This Floor\n{stats.DamageDealtThisFloor}\nGems Collected\n{stats.GemsCollected}";
+        remainingStats.text = $"Last Attack\n{stats.LastDamage}\nDamage Dealt Last Round\n{stats.DamageDealtLastRound}\nDamage Dealt This Floor\n{stats.DamageDealtThisFloor}\nGems Collected\n{stats.GemsCollected}";
         creatureSlot1Damage.text = $"{(ulong)battleCreatures[0].Attack}";
         creatureSlot2Damage.text = $"{(ulong)battleCreatures[1].Attack}";
         creatureSlot3Damage.text = $"{(ulong)battleCreatures[2].Attack}";
         creatureSlot4Damage.text = $"{(ulong)battleCreatures[3].Attack}";
-        // TODO: set art for party and enemy
 
         // Simulate the battle and add to the event queue
         var currentPhase = EBattlePhase.PreRound;
@@ -143,6 +151,7 @@ public class MenuBattle : IMenuController {
                                     bc.AttackTriggers++;
                                 }
                                 currentPhase = EBattlePhase.PreRound;
+                                events.Add(new BattleEvent(stats, battleCreatures, battleCreatureIndex, EBattleEventType.Buff));
                                 goto WhileLoop;
                         }
                     }
@@ -235,7 +244,7 @@ public class MenuBattle : IMenuController {
 
     public void Update() {
         elapsedSinceLast += Time.deltaTime;
-        if (elapsedSinceLast >= 0.75) {
+        if (elapsedSinceLast >= 0.51) {
             elapsedSinceLast = 0;
             UpdateStep();
         }
@@ -263,23 +272,108 @@ public class MenuBattle : IMenuController {
         eventIndex++;
         switch (currentEvent.EventType) {
             case EBattleEventType.Buff:
-                // TODO: do something for buffs
+                switch (currentEvent.PartyMember) {
+                    case 0:
+                        creatureSlot1Animation.Stop();
+                        creatureSlot1Animation.Play("Spin1");
+                        break;
+                    case 1:
+                        creatureSlot2Animation.Stop();
+                        creatureSlot2Animation.Play("Spin1");
+                        break;
+                    case 2:
+                        creatureSlot3Animation.Stop();
+                        creatureSlot3Animation.Play("Spin1");
+                        break;
+                    case 3:
+                        creatureSlot4Animation.Stop();
+                        creatureSlot4Animation.Play("Spin1");
+                        break;
+                }
                 UpdateText(currentEvent.Stats, currentEvent.Party);
                 break;
             case EBattleEventType.NormalAttack:
-                // TODO: animation for normal attack
+                switch (currentEvent.PartyMember) {
+                    case 0:
+                        creatureSlot1Animation.Stop();
+                        creatureSlot1Animation.Play("Attack1");
+                        break;
+                    case 1:
+                        creatureSlot2Animation.Stop();
+                        creatureSlot2Animation.Play("Attack2");
+                        break;
+                    case 2:
+                        creatureSlot3Animation.Stop();
+                        creatureSlot3Animation.Play("Attack3");
+                        break;
+                    case 3:
+                        creatureSlot4Animation.Stop();
+                        creatureSlot4Animation.Play("Attack4");
+                        break;
+                }
                 UpdateText(currentEvent.Stats, currentEvent.Party);
                 break;
             case EBattleEventType.DoubleAttack:
-                // TODO: animation for double attack
+                switch (currentEvent.PartyMember) {
+                    case 0:
+                        creatureSlot1Animation.Stop();
+                        creatureSlot1Animation.Play("Attack1");
+                        break;
+                    case 1:
+                        creatureSlot2Animation.Stop();
+                        creatureSlot2Animation.Play("Attack2");
+                        break;
+                    case 2:
+                        creatureSlot3Animation.Stop();
+                        creatureSlot3Animation.Play("Attack3");
+                        break;
+                    case 3:
+                        creatureSlot4Animation.Stop();
+                        creatureSlot4Animation.Play("Attack4");
+                        break;
+                }
                 UpdateText(currentEvent.Stats, currentEvent.Party);
                 break;
             case EBattleEventType.QuadAttack:
-                // TODO: animation for quad attack
+                switch (currentEvent.PartyMember) {
+                    case 0:
+                        creatureSlot1Animation.Stop();
+                        creatureSlot1Animation.Play("Attack1");
+                        break;
+                    case 1:
+                        creatureSlot2Animation.Stop();
+                        creatureSlot2Animation.Play("Attack2");
+                        break;
+                    case 2:
+                        creatureSlot3Animation.Stop();
+                        creatureSlot3Animation.Play("Attack3");
+                        break;
+                    case 3:
+                        creatureSlot4Animation.Stop();
+                        creatureSlot4Animation.Play("Attack4");
+                        break;
+                }
                 UpdateText(currentEvent.Stats, currentEvent.Party);
                 break;
             case EBattleEventType.HalfAttack:
-                // TODO: animation for half attack
+                switch (currentEvent.PartyMember) {
+                    case 0:
+                        creatureSlot1Animation.Stop();
+                        creatureSlot1Animation.Play("Attack1");
+                        break;
+                    case 1:
+                        creatureSlot2Animation.Stop();
+                        creatureSlot2Animation.Play("Attack2");
+                        break;
+                    case 2:
+                        creatureSlot3Animation.Stop();
+                        creatureSlot3Animation.Play("Attack3");
+                        break;
+                    case 3:
+                        creatureSlot4Animation.Stop();
+                        creatureSlot4Animation.Play("Attack4");
+                        break;
+                }
                 UpdateText(currentEvent.Stats, currentEvent.Party);
                 break;
             case EBattleEventType.Win:
